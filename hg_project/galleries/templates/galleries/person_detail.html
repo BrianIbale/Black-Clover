@@ -1,0 +1,16 @@
+{% extends 'galleries/base.html' %}
+
+{% block content %}
+<p>Person: {{ person.person_text }}</p>
+
+<p>Details:</p>
+<ul>
+    {% for person_detail in person_details %}
+        <li>
+            <p>{{ persondetail.person_subtext|linebreaks }}</p>
+        </li>
+    {% empty %}
+        <li>There are no details for this person yet.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

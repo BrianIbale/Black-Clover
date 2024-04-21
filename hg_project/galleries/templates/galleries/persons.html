@@ -1,0 +1,13 @@
+{% extends 'galleries/base.html' %}
+
+{% block content %}
+<p>Persons</p>
+<ul>
+    {% for person in persons %}
+        <li>
+            <a href="{% url 'galleries:person' person.id %}">{{ person.person_text }}</li>
+    {% empty %}
+        <li>No persons have been added yet.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
