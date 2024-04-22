@@ -1,0 +1,12 @@
+{% extends 'galleries/base.html' %}
+
+{% block content %}
+  <p>Add a new person:</p>
+  <form action="{% url 'galleries:new_person' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button name='submit'>Add person</button>
+  </form>
+
+
+{% endblock content %}

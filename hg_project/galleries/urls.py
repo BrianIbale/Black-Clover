@@ -23,7 +23,7 @@ urlpatterns = [
     # Detail page for a single event.
     path('events/<int:event_id>/', views.event, name='event_detail'),
     # Page for adding a new event.
-    path('new_event/', views.new_event, name='new_event'),
+    path('new_event/<int:event_id>/', views.new_event, name='new_event'),
     # Page for editing a person.
     path('edit_event/<int:event_id>/', views.edit_event, name='edit_event'),
 ]

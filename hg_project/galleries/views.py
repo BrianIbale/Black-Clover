@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .models import Person, PersonDetail, Event, EventDetail
+from .forms import PersonForm, EventForm
 
 # Create your views here.
 def index(request):
@@ -27,6 +28,20 @@ def person_detail(request, person_id):
 
 def new_person(request):
     """Add a new person."""
+    if request.method != 'POST':
+        # No data submitted; create a blank form.
+        form = PersonForm()
+    else:
+        # POST data submitted; process data.
+        form = PersonForm(data=request.POST)
+        if form.is_valid():
+            new_entry = form.save(commit=False)
+            new_entry.save()
+            return redirect('galleries:persons')
+       
+    # Display a blank or invalid form.
+    context = {'form': form}
+    return render(request, 'galleries/new_person.html', context)
 
 
 def edit_person(request):

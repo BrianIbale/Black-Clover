@@ -2,6 +2,9 @@
 
 {% block content %}
 <p>Persons</p>
+<p>
+    <a href="{% url 'galleries:new_person' %}">Add a new person</a>
+</p>
 <ul>
     {% for person in persons %}
         <li>
