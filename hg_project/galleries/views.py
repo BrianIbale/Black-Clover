@@ -35,10 +35,18 @@ def edit_person(request):
 
 def events(request):
     """Show all events."""
+    events = Event.objects.all()
+    context = {'events': events}
+    return render(request, 'galleries/events.html', context)
 
 
-def event(request):
+def event(request, event_id):
     """Show a single event's details."""
+    event = Event.objects.get(id=event_id)
+
+    event_details = event.eventdetail_set.all()
+    context = {'event': event, 'event_details': event_details}
+    return render(request, 'galleries/event_detail.html', context)
 
 
 def new_event(request):

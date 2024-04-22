@@ -1,0 +1,13 @@
+{% extends 'galleries/base.html' %}
+
+{% block content %}
+<p>Events</p>
+<ul>
+    {% for event in events %}
+        <li>
+            <a href="{% url 'galleries:event_detail' event.id %}">{{ event.event_text }}</li>
+    {% empty %}
+        <li>No events have been added yet.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

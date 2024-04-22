@@ -1,0 +1,16 @@
+{% extends 'galleries/base.html' %}
+
+{% block content %}
+<p>Event: {{ event.event_text }}</p>
+
+<p>Details:</p>
+<ul>
+    {% for event_detail in event_details %}
+        <li>
+            <p>{{ event_detail.event_subtext|linebreaks }}</p>
+        </li>
+    {% empty %}
+        <li>There are no details for this event yet.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

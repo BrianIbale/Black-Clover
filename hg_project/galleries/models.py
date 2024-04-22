@@ -9,7 +9,6 @@ class Person(models.Model):
 
 class PersonDetail(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
-    person_text = models.CharField(max_length=200)
     person_subtext = models.TextField()
 
     def __str__(self):
@@ -23,7 +22,6 @@ class Event(models.Model):
 
 class EventDetail(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    event_text = models.CharField(max_length=200)
     event_subtext = models.TextField()
 
     def __str__(self):
