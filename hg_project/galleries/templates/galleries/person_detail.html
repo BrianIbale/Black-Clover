@@ -7,7 +7,7 @@
 <ul>
     {% for person_detail in person_details %}
         <li>
-            <p>{{ persondetail.person_subtext|linebreaks }}</p>
+            <p>{{ person_detail.person_subtext|linebreaks }}</p>
         </li>
     {% empty %}
         <li>There are no details for this person yet.</li>
