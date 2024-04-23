@@ -66,6 +66,20 @@ def event(request, event_id):
 
 def new_event(request):
     """Add a new event."""
+    if request.method != 'POST':
+        # No data submitted; create a blank form.
+        form = EventForm()
+    else:
+        # POST data submitted; process data.
+        form = EventForm(data=request.POST)
+        if form.is_valid():
+            new_entry = form.save(commit=False)
+            new_entry.save()
+            return redirect('galleries:events')
+       
+    # Display a blank or invalid form.
+    context = {'form': form}
+    return render(request, 'galleries/new_event.html', context)
 
 
 def edit_event(request):

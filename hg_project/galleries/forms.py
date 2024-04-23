@@ -13,4 +13,3 @@ class EventForm(forms.ModelForm):
         model = Event
         fields = ['event_text']
         labels = {'event_text': ''}
-        widgets = {'event_text': forms.Textarea(attrs={'cols':80})}
