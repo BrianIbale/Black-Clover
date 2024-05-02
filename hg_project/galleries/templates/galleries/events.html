@@ -2,9 +2,6 @@
 
 {% block content %}
 <p>Events</p>
-<p>
-    <a href="{% url 'galleries:new_event' %}">Add a new event</a>
-</p>
 <ul>
     {% for event in events %}
         <li>

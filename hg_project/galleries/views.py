@@ -26,28 +26,6 @@ def person_detail(request, person_id):
     return render(request, 'galleries/person_detail.html', context)
 
 
-def new_person(request):
-    """Add a new person."""
-    if request.method != 'POST':
-        # No data submitted; create a blank form.
-        form = PersonForm()
-    else:
-        # POST data submitted; process data.
-        form = PersonForm(data=request.POST)
-        if form.is_valid():
-            new_entry = form.save(commit=False)
-            new_entry.save()
-            return redirect('galleries:persons')
-       
-    # Display a blank or invalid form.
-    context = {'form': form}
-    return render(request, 'galleries/new_person.html', context)
-
-
-def edit_person(request):
-    """Edit an existing person."""
-
-
 def events(request):
     """Show all events."""
     events = Event.objects.all()
@@ -55,32 +33,10 @@ def events(request):
     return render(request, 'galleries/events.html', context)
 
 
-def event(request, event_id):
+def event_detail(request, event_id):
     """Show a single event's details."""
     event = Event.objects.get(id=event_id)
 
     event_details = event.eventdetail_set.all()
     context = {'event': event, 'event_details': event_details}
     return render(request, 'galleries/event_detail.html', context)
-
-
-def new_event(request):
-    """Add a new event."""
-    if request.method != 'POST':
-        # No data submitted; create a blank form.
-        form = EventForm()
-    else:
-        # POST data submitted; process data.
-        form = EventForm(data=request.POST)
-        if form.is_valid():
-            new_entry = form.save(commit=False)
-            new_entry.save()
-            return redirect('galleries:events')
-       
-    # Display a blank or invalid form.
-    context = {'form': form}
-    return render(request, 'galleries/new_event.html', context)
-
-
-def edit_event(request):
-    """Edit an existing event."""
