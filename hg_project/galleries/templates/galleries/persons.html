@@ -5,7 +5,7 @@
 <ul>
     {% for person in persons %}
         <li>
-            <a href="{% url 'galleries:person_detail' person.id %}">{{ person.person_text }}</li>
+            <a href="{% url 'galleries:person_detail' person.id person.personimage_set.first.id %}">{{ person.person_text }}</li>
     {% empty %}
         <li>No persons have been added yet.</li>
     {% endfor %}

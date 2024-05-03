@@ -13,4 +13,14 @@
         <li>There are no details for this person yet.</li>
     {% endfor %}
 </ul>
+<ul>
+    {% for person_image in person_images %}
+        <li>
+            <p>{{ person_image.image }}</p>
+            <p>{{ person_image.name }}</p>
+        </li>
+    {% empty %}
+        <li>There are no images for this person yet.</li>
+    {% endfor %}
+</ul>
 {% endblock content %}
