@@ -1,13 +1,24 @@
 {% extends 'galleries/base.html' %}
 
+
+{% block page_header %}
+  <h1>Events</h1>
+{% endblock page_header %}
+
+
 {% block content %}
-<p>Events</p>
-<ul>
+
+
+  <ul class="list-group border-bottom pb-2 mb-4">
     {% for event in events %}
-        <li>
-            <a href="{% url 'galleries:event_detail' event.id %}">{{ event.event_text }}</li>
+      <li class="list-group-item border-0">
+        <a href="{% url 'galleries:event_detail' event.id %}">
+          {{ event.event_text }}</a>
+      </li>
     {% empty %}
-        <li>No events have been added yet.</li>
+      <li class="list-group-item border-0">No events have been added yet.</li>
     {% endfor %}
-</ul>
+  </ul>
+
+
 {% endblock content %}
