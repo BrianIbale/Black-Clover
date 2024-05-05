@@ -1,16 +1,26 @@
 {% extends 'galleries/base.html' %}
 
-{% block content %}
-<p>Event: {{ event.event_text }}</p>
 
-<p>Details:</p>
-<ul>
-    {% for event_detail in event_details %}
-        <li>
-            <p>{{ event_detail.event_subtext|linebreaks }}</p>
-        </li>
-    {% empty %}
-        <li>There are no details for this event yet.</li>
-    {% endfor %}
-</ul>
+{% block page_header %}
+  <h1>{{ event.event_text }}</h1>
+{% endblock page_header %}
+
+
+{% block content %}
+
+
+  {% for event_detail in event_details %}
+    <div class="card mb-3">
+      <!-- Card header with timestamp and edit link -->
+      <h4 class="card-header">
+        <p>Details</p>
+      </h4>
+      <!-- Card body with entry text -->
+      <div class="card-body">{{ event_detail.event_subtext|linebreaks }}</div>
+    </div>
+  {% empty %}
+    <p>There are no details for this event yet.</p>
+  {% endfor %}
+
+
 {% endblock content %}
