@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from .models import Person, PersonDetail, Event, EventDetail, PersonImage
+from .models import Person, PersonDetail, Event, EventDetail
 from .forms import PersonForm, EventForm
 
 # Create your views here.
@@ -17,14 +17,12 @@ def persons(request):
     return render(request, 'galleries/persons.html', context)
 
 
-def person_detail(request, person_id, personimage_id):
+def person_detail(request, person_id):
     """Show a single person's details."""
     person = Person.objects.get(id=person_id)
-    image = PersonImage.objects.get(id=personimage_id)
 
     person_details = person.persondetail_set.all()
-    person_image = image.imagedetail_set.all()
-    context = {'person': person, 'person_details': person_details, 'person_image': person_image}
+    context = {'person': person, 'person_details': person_details}
     return render(request, 'galleries/person_detail.html', context)
 
 
