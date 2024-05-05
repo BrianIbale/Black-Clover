@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     # My apps.
     "galleries.apps.GalleriesConfig",
 
+    # Third party apps.
+    'django_bootstrap5',
+
     # Django apps.
     'django.contrib.admin',
     'django.contrib.auth',
