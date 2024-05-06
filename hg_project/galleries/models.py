@@ -29,3 +29,13 @@ class EventDetail(models.Model):
 
     def __str__(self):
         return self.event_subtext
+    
+
+class EventImage(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='pics/')
+    title = models.CharField(max_length=150)
+    sub_title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title

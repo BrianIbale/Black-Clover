@@ -1,8 +1,6 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render
 
-from .models import Person, PersonDetail, Event, EventDetail
-from .forms import PersonForm, EventForm
+from .models import Person, Event, EventImage
 
 # Create your views here.
 def index(request):
@@ -36,7 +34,8 @@ def events(request):
 def event_detail(request, event_id):
     """Show a single event's details."""
     event = Event.objects.get(id=event_id)
+    images = EventImage.objects.all()
 
     event_details = event.eventdetail_set.all()
-    context = {'event': event, 'event_details': event_details}
+    context = {'event': event, 'event_details': event_details, 'images': images}
     return render(request, 'galleries/event_detail.html', context)
