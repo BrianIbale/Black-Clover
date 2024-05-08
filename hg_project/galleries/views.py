@@ -34,7 +34,7 @@ def events(request):
 def event_detail(request, event_id):
     """Show a single event's details."""
     event = Event.objects.get(id=event_id)
-    images = EventImage.objects.all()
+    images = EventImage.objects.filter(event=event)
 
     event_details = event.eventdetail_set.all()
     context = {'event': event, 'event_details': event_details, 'images': images}
