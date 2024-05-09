@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Person, Event, EventImage
+from .models import Person, Event, EventImage, PersonsImage
 
 # Create your views here.
 def index(request):
@@ -16,11 +16,12 @@ def persons(request):
 
 
 def person_detail(request, person_id):
-    """Show a single person's details."""
+    """Show a single person's details with images."""
     person = Person.objects.get(id=person_id)
+    images = PersonsImage.objects.filter(person=person)
 
     person_details = person.persondetail_set.all()
-    context = {'person': person, 'person_details': person_details}
+    context = {'person': person, 'person_details': person_details, 'images': images}
     return render(request, 'galleries/person_detail.html', context)
 
 
@@ -32,7 +33,7 @@ def events(request):
 
 
 def event_detail(request, event_id):
-    """Show a single event's details."""
+    """Show a single event's details with images."""
     event = Event.objects.get(id=event_id)
     images = EventImage.objects.filter(event=event)
 

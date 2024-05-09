@@ -14,6 +14,16 @@ class PersonDetail(models.Model):
 
     def __str__(self):
         return f"{self.person_subtext[:50]}..."
+    
+
+class PersonsImage(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='persons/')
+    title = models.CharField(max_length=150)
+    sub_title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
 
 
 class Event(models.Model):
