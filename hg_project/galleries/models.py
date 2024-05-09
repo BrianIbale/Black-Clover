@@ -74,3 +74,28 @@ class FoodImage(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Clothe(models.Model):
+    clothe_text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.clothe_text
+
+
+class ClotheDetail(models.Model):
+    clothe = models.ForeignKey(Clothe, on_delete=models.CASCADE)
+    clothe_subtext = models.TextField()
+
+    def __str__(self):
+        return self.clothe_subtext
+    
+
+class ClotheImage(models.Model):
+    clothe = models.ForeignKey(Clothe, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='clothes/')
+    title = models.CharField(max_length=150)
+    sub_title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
