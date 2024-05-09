@@ -1,3 +1,3 @@
-# History-Gallery
+# Black-Clover
 
-A private site that lets people view information about the history of the Philippines.
+A private site that lets people view information such as events and people in the anime Black Clover made with the Django web framework.
