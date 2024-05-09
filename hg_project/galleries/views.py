@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Person, Event, EventImage, PersonsImage
+from .models import Person, Event, EventImage, PersonsImage, Food, FoodImage
 
 # Create your views here.
 def index(request):
@@ -40,3 +40,20 @@ def event_detail(request, event_id):
     event_details = event.eventdetail_set.all()
     context = {'event': event, 'event_details': event_details, 'images': images}
     return render(request, 'galleries/event_detail.html', context)
+
+
+def foods(request):
+    """Show all foods."""
+    foods = Food.objects.all()
+    context = {'foods': foods}
+    return render(request, 'galleries/foods.html', context)
+
+
+def food_detail(request, food_id):
+    """Show a single food's details with images."""
+    food = Food.objects.get(id=food_id)
+    images = FoodImage.objects.filter(food=food)
+
+    food_details = food.fooddetail_set.all()
+    context = {'food': food, 'food_details': food_details, 'images': images}
+    return render(request, 'galleries/food_detail.html', context)

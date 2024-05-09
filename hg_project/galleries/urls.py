@@ -18,4 +18,9 @@ urlpatterns = [
     path('events', views.events, name='events'),
     # Detail page for a single event.
     path('events/<int:event_id>/', views.event_detail, name='event_detail'),
+
+    # Page that shows all foods.
+    path('foods', views.foods, name='foods'),
+    # Detail page for a single event.
+    path('foods/<int:food_id>/', views.food_detail, name='food_detail'),
 ]
