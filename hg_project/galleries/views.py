@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
-from .models import Person, Event, EventImage, PersonsImage, Food, FoodImage, Clothe, ClotheImage, Livelihood, LivelihoodImage
+from .models import (Person, PersonsImage, Event, EventImage,  Food, FoodImage, 
+                     Clothe, ClotheImage, Livelihood, LivelihoodImage, 
+                     Culture, CultureImage)
 
 # Create your views here.
 def index(request):
@@ -91,3 +93,20 @@ def livelihood_detail(request, livelihood_id):
     livelihood_details = livelihood.livelihooddetail_set.all()
     context = {'livelihood': livelihood, 'livelihood_details': livelihood_details, 'images': images}
     return render(request, 'galleries/livelihood_detail.html', context)
+
+
+def cultures(request):
+    """Show all cultures."""
+    cultures = Culture.objects.all()
+    context = {'cultures': cultures}
+    return render(request, 'galleries/cultures.html', context)
+
+
+def culture_detail(request, culture_id):
+    """Show a single culture's details with images."""
+    culture = Culture.objects.get(id=culture_id)
+    images = CultureImage.objects.filter(culture=culture)
+
+    culture_details = culture.culturedetail_set.all()
+    context = {'culture': culture, 'culture_details': culture_details, 'images': images}
+    return render(request, 'galleries/culture_detail.html', context)

@@ -3,7 +3,8 @@ from .models import (Person, PersonDetail, PersonsImage,
                      Event, EventDetail, EventImage, 
                      Food, FoodDetail, FoodImage, 
                      Clothe, ClotheDetail, ClotheImage, 
-                     Livelihood, LivelihoodDetail, LivelihoodImage)
+                     Livelihood, LivelihoodDetail, LivelihoodImage,
+                     Culture, CultureDetail, CultureImage)
 
 # Register your models here.
 admin.site.register(Person)
@@ -21,3 +22,6 @@ admin.site.register(ClotheImage)
 admin.site.register(Livelihood)
 admin.site.register(LivelihoodDetail)
 admin.site.register(LivelihoodImage)
+admin.site.register(Culture)
+admin.site.register(CultureDetail)
+admin.site.register(CultureImage)

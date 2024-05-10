@@ -124,3 +124,28 @@ class LivelihoodImage(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Culture(models.Model):
+    culture_text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.culture_text
+
+
+class CultureDetail(models.Model):
+    culture = models.ForeignKey(Culture, on_delete=models.CASCADE)
+    culture_subtext = models.TextField()
+
+    def __str__(self):
+        return self.culture_subtext
+    
+
+class CultureImage(models.Model):
+    culture = models.ForeignKey(Culture, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='cultures/')
+    title = models.CharField(max_length=150)
+    sub_title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title

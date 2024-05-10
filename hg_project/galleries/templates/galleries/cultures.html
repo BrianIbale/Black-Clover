@@ -1,0 +1,24 @@
+{% extends 'galleries/base.html' %}
+
+
+{% block page_header %}
+  <h1>Cultures</h1>
+{% endblock page_header %}
+
+
+{% block content %}
+
+
+  <ul class="list-group border-bottom pb-2 mb-4">
+    {% for culture in cultures %}
+      <li class="list-group-item border-0">
+        <a href="{% url 'galleries:culture_detail' culture.id %}">
+          {{ culture.culture_text }}</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item border-0">No cultures have been added yet.</li>
+    {% endfor %}
+  </ul>
+
+
+{% endblock content %}

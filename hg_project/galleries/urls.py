@@ -33,4 +33,9 @@ urlpatterns = [
     path('livelihoods', views.livelihoods, name='livelihoods'),
     # Detail page for a single livelihood.
     path('livelihoods/<int:livelihood_id>/', views.livelihood_detail, name='livelihood_detail'),
+    
+    # Page that shows all cultures.
+    path('cultures', views.cultures, name='cultures'),
+    # Detail page for a single culture.
+    path('cultures/<int:culture_id>/', views.culture_detail, name='culture_detail'),
 ]
