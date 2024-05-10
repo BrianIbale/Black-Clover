@@ -43,4 +43,9 @@ urlpatterns = [
     path('medicines', views.medicines, name='medicines'),
     # Detail page for a single medicine.
     path('medicines/<int:medicine_id>/', views.medicine_detail, name='medicine_detail'),
+
+    # Page that shows all inventions.
+    path('inventions', views.inventions, name='inventions'),
+    # Detail page for a single invention.
+    path('inventions/<int:invention_id>/', views.invention_detail, name='invention_detail'),
 ]

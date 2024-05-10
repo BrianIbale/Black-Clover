@@ -2,7 +2,8 @@ from django.shortcuts import render
 
 from .models import (Person, PersonsImage, Event, EventImage,  Food, FoodImage, 
                      Clothe, ClotheImage, Livelihood, LivelihoodImage, 
-                     Culture, CultureImage, Medicine, MedicineImage)
+                     Culture, CultureImage, Medicine, MedicineImage,
+                     Invention, InventionImage)
 
 # Create your views here.
 def index(request):
@@ -127,3 +128,20 @@ def medicine_detail(request, medicine_id):
     medicine_details = medicine.medicinedetail_set.all()
     context = {'medicine': medicine, 'medicine_details': medicine_details, 'images': images}
     return render(request, 'galleries/medicine_detail.html', context)
+
+
+def inventions(request):
+    """Show all inventions."""
+    inventions = Invention.objects.all()
+    context = {'inventions': inventions}
+    return render(request, 'galleries/inventions.html', context)
+
+
+def invention_detail(request, invention_id):
+    """Show a single invention's details with images."""
+    invention = Invention.objects.get(id=invention_id)
+    images = InventionImage.objects.filter(invention=invention)
+
+    invention_details = invention.inventiondetail_set.all()
+    context = {'invention': invention, 'invention_details': invention_details, 'images': images}
+    return render(request, 'galleries/invention_detail.html', context)
