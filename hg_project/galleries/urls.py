@@ -28,4 +28,9 @@ urlpatterns = [
     path('clothes', views.clothes, name='clothes'),
     # Detail page for a single clothe.
     path('clothes/<int:clothe_id>/', views.clothe_detail, name='clothe_detail'),
+
+    # Page that shows all livelihoods.
+    path('livelihoods', views.livelihoods, name='livelihoods'),
+    # Detail page for a single livelihood.
+    path('livelihoods/<int:livelihood_id>/', views.livelihood_detail, name='livelihood_detail'),
 ]

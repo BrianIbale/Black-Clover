@@ -1,0 +1,24 @@
+{% extends 'galleries/base.html' %}
+
+
+{% block page_header %}
+  <h1>Livelihoods</h1>
+{% endblock page_header %}
+
+
+{% block content %}
+
+
+  <ul class="list-group border-bottom pb-2 mb-4">
+    {% for livelihood in livelihoods %}
+      <li class="list-group-item border-0">
+        <a href="{% url 'galleries:livelihood_detail' livelihood.id %}">
+          {{ livelihood.livelihood_text }}</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item border-0">No livelihoods have been added yet.</li>
+    {% endfor %}
+  </ul>
+
+
+{% endblock content %}

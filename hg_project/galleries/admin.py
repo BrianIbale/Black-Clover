@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import Person, PersonDetail, PersonsImage, Event, EventDetail, EventImage, Food, FoodDetail, FoodImage, Clothe, ClotheDetail, ClotheImage
+from .models import (Person, PersonDetail, PersonsImage, 
+                     Event, EventDetail, EventImage, 
+                     Food, FoodDetail, FoodImage, 
+                     Clothe, ClotheDetail, ClotheImage, 
+                     Livelihood, LivelihoodDetail, LivelihoodImage)
 
 # Register your models here.
 admin.site.register(Person)
@@ -14,3 +18,6 @@ admin.site.register(FoodImage)
 admin.site.register(Clothe)
 admin.site.register(ClotheDetail)
 admin.site.register(ClotheImage)
+admin.site.register(Livelihood)
+admin.site.register(LivelihoodDetail)
+admin.site.register(LivelihoodImage)

@@ -99,3 +99,28 @@ class ClotheImage(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Livelihood(models.Model):
+    livelihood_text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.livelihood_text
+
+
+class LivelihoodDetail(models.Model):
+    livelihood = models.ForeignKey(Livelihood, on_delete=models.CASCADE)
+    livelihood_subtext = models.TextField()
+
+    def __str__(self):
+        return self.livelihood_subtext
+    
+
+class LivelihoodImage(models.Model):
+    livelihood = models.ForeignKey(Livelihood, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='livelihoods/')
+    title = models.CharField(max_length=150)
+    sub_title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
