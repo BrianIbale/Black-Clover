@@ -38,4 +38,9 @@ urlpatterns = [
     path('cultures', views.cultures, name='cultures'),
     # Detail page for a single culture.
     path('cultures/<int:culture_id>/', views.culture_detail, name='culture_detail'),
+
+    # Page that shows all medicines.
+    path('medicines', views.medicines, name='medicines'),
+    # Detail page for a single medicine.
+    path('medicines/<int:medicine_id>/', views.medicine_detail, name='medicine_detail'),
 ]

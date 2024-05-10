@@ -4,7 +4,8 @@ from .models import (Person, PersonDetail, PersonsImage,
                      Food, FoodDetail, FoodImage, 
                      Clothe, ClotheDetail, ClotheImage, 
                      Livelihood, LivelihoodDetail, LivelihoodImage,
-                     Culture, CultureDetail, CultureImage)
+                     Culture, CultureDetail, CultureImage,
+                     Medicine, MedicineDetail, MedicineImage)
 
 # Register your models here.
 admin.site.register(Person)
@@ -25,3 +26,6 @@ admin.site.register(LivelihoodImage)
 admin.site.register(Culture)
 admin.site.register(CultureDetail)
 admin.site.register(CultureImage)
+admin.site.register(Medicine)
+admin.site.register(MedicineDetail)
+admin.site.register(MedicineImage)

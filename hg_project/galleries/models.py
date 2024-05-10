@@ -149,3 +149,28 @@ class CultureImage(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Medicine(models.Model):
+    medicine_text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.medicine_text
+
+
+class MedicineDetail(models.Model):
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
+    medicine_subtext = models.TextField()
+
+    def __str__(self):
+        return self.medicine_subtext
+    
+
+class MedicineImage(models.Model):
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='medicines/')
+    title = models.CharField(max_length=150)
+    sub_title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title

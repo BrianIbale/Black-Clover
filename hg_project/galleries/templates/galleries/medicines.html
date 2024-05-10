@@ -1,0 +1,24 @@
+{% extends 'galleries/base.html' %}
+
+
+{% block page_header %}
+  <h1>Medicines</h1>
+{% endblock page_header %}
+
+
+{% block content %}
+
+
+  <ul class="list-group border-bottom pb-2 mb-4">
+    {% for medicine in medicines %}
+      <li class="list-group-item border-0">
+        <a href="{% url 'galleries:medicine_detail' medicine.id %}">
+          {{ medicine.medicine_text }}</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item border-0">No medicines have been added yet.</li>
+    {% endfor %}
+  </ul>
+
+
+{% endblock content %}
