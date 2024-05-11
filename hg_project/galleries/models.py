@@ -38,7 +38,7 @@ class EventDetail(models.Model):
     event_subtext = models.TextField()
 
     def __str__(self):
-        return self.event_subtext
+        return f"{self.event_subtext[:50]}..."
     
 
 class EventImage(models.Model):
@@ -63,7 +63,7 @@ class FoodDetail(models.Model):
     food_subtext = models.TextField()
 
     def __str__(self):
-        return self.food_subtext
+        return f"{self.food_subtext[:50]}..."
     
 
 class FoodImage(models.Model):
@@ -88,7 +88,7 @@ class ClotheDetail(models.Model):
     clothe_subtext = models.TextField()
 
     def __str__(self):
-        return self.clothe_subtext
+        return f"{self.clothe_subtext[:50]}..."
     
 
 class ClotheImage(models.Model):
@@ -113,7 +113,7 @@ class LivelihoodDetail(models.Model):
     livelihood_subtext = models.TextField()
 
     def __str__(self):
-        return self.livelihood_subtext
+        return f"{self.livelihood_subtext[:50]}..."
     
 
 class LivelihoodImage(models.Model):
@@ -138,7 +138,7 @@ class CultureDetail(models.Model):
     culture_subtext = models.TextField()
 
     def __str__(self):
-        return self.culture_subtext
+        return f"{self.culture_subtext[:50]}..."
     
 
 class CultureImage(models.Model):
@@ -163,7 +163,7 @@ class MedicineDetail(models.Model):
     medicine_subtext = models.TextField()
 
     def __str__(self):
-        return self.medicine_subtext
+        return f"{self.medicine_subtext[:50]}..."
     
 
 class MedicineImage(models.Model):
@@ -188,7 +188,7 @@ class InventionDetail(models.Model):
     invention_subtext = models.TextField()
 
     def __str__(self):
-        return self.invention_subtext
+        return f"{self.invention_subtext[:50]}..."
     
 
 class InventionImage(models.Model):
